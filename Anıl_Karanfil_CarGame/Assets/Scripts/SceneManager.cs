@@ -56,10 +56,7 @@ public class SceneManager : MonoBehaviour
     {
         WaveCounter();
         SetWave(wave);
-
     }
-
-
     int WaveCounter()
     {
         return wave++;
@@ -82,19 +79,15 @@ public class SceneManager : MonoBehaviour
             carRecords[i].transform.position = carRecords[i].GetComponent<Recorder>().dataList[0].position;
             carRecords[i].transform.rotation = carRecords[i].GetComponent<Recorder>().dataList[0].rotation;
             carRecords[i].transform.Find("Selection").gameObject.SetActive(false);
-
-
         }
 
         waves[wave].SetActive(true);
         GameUI.instance.SetWaveText((wave + 1).ToString());
-
     }
     void SetLevel(int curLevel)//Set the level
     {
         if (curLevel > levels.Length)//Is the maximum of level
         {
-
             Debug.Log("Sorry, We have a only " + levels.Length + " levels");
             return;
         }
@@ -103,12 +96,10 @@ public class SceneManager : MonoBehaviour
             Destroy(curLevelGameObject);
 
         }
-
         curLevelGameObject = Instantiate(levels[curLevel], new Vector3(0, 0, 0), Quaternion.identity);//Instantiate new gameobject
         GetChildObject(curLevelGameObject.transform, "Wave");
         NewWave();
         GameUI.instance.SetLevelText((level + 1).ToString());
-
     }
 
     public void GetChildObject(Transform parent, string waveTag)//Count of waves

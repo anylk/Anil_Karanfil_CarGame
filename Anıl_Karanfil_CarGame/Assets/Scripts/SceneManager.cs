@@ -99,6 +99,11 @@ public class SceneManager : MonoBehaviour
             Destroy(curLevelGameObject);
 
         }
+        if(waves != null)
+        {
+            waves.Clear();
+            carRecords.Clear();
+        }
         curLevelGameObject = Instantiate(levels[curLevel], new Vector3(0, 0, 0), Quaternion.identity);//Instantiate new gameobject
         GetChildObject(curLevelGameObject.transform, "Wave");
         NewWave();

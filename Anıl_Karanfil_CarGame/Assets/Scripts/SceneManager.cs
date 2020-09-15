@@ -44,6 +44,9 @@ public class SceneManager : MonoBehaviour
         for (int i = 0; i < carRecords.Count; i++)//Start Playback
         {
             carRecords[i].GetComponent<Recorder>().PlayReplay();
+            carRecords[i].transform.position = carRecords[i].GetComponent<Recorder>().dataList[0].position;
+            carRecords[i].transform.rotation = carRecords[i].GetComponent<Recorder>().dataList[0].rotation;
+            carRecords[i].GetComponent<PlayerController>().firstTouch = false;
 
         }
     }
@@ -134,7 +137,6 @@ public void Confetti()
     {
         for (int i = 0; i < carRecords.Count; i++)
         {
-            Debug.Log("Allah123");
             carRecords[i].GetComponent<Recorder>().StopReplay();
 
             carRecords[i].transform.position = carRecords[i].GetComponent<Recorder>().dataList[0].position;
@@ -154,7 +156,5 @@ public void Confetti()
         isPlaying = false;
 
     }
-
-
 
 }
